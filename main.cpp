@@ -1,7 +1,9 @@
 #include <QtCore/QCoreApplication>
 #include <iostream>
 #include <stdlib.h>
-#define n 20
+#include <time.h>
+#include <stddef.h>
+#define n 15000
 using namespace std;
 
 void selection(int *ar)
@@ -27,12 +29,16 @@ void selection(int *ar)
 
 int main()
 {
+    clock_t start, end;
     int *arr=new int [n];
     for(int i=0; i<n; i++) arr[i]=rand()%20;
-    for(int i=0; i<n; i++) cout<<arr[i]<<"\t";
+    //for(int i=0; i<n; i++) cout<<arr[i]<<"\t";
+    start=clock();
     selection(arr);
-    cout<< "\nsort:\n";
-    for(int i=0; i<n; i++) cout<<arr[i]<<"\t";
+    end=clock();
+   // cout<< "\nsort:\n";
+   // for(int i=0; i<n; i++) cout<<arr[i]<<"\t";
+    cout<<"\nt="<<end-start;
     system("pause");
 
 }
